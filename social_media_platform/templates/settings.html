@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/msg.css">
+    <script src="https://kit.fontawesome.com/d9c78b6614.js" crossorigin="anonymous"></script>
+    <title>Instagram Clone</title>
+     list-style-type: none;
+            padding: 0;
+        }
+
+</head>
+
+<body>
+
+    <!-- Our Header section Starts from here -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-links">
+                    <ul class="nav-group">
+                        <li class="nav-item">
+                            <a href="../templates/index.html">
+                                <i class="fas fa-home video"></i>
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a href="">
+                                <i class="fas fa-video video"></i>
+                            </a>
+                        </li> -->
+                        <!-- <li class="nav-item">
+                            <a href="../templates/connections.html">
+                                <i class="fas fa-users video"></i>
+                            </a>
+                        </li> -->
+                        <li class="nav-item">
+                            <div class="sta">
+                                <a href="../templates/msg.html">
+                                    <i class="fab fa-facebook-messenger msg"></i>
+                                </a>
+                                <div class="circle" style="border-radius: 50%;">7</div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="action">
+                                <div class="profile" onclick="menuToggle()">
+                                    <a href="../templates/profile.html">
+                                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20220609093221/g2-200x200.jpg"
+                                            alt="user Avatar">
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a href="">
+                                <i class="fas fa-heart heart"></i>
+                            </a>
+                        </li> -->
+                        <li class="nav-item">
+                            <div class="sta">
+                                <a href="../templates/notification.html">
+                                    <i class="fas fa-bell bell"></i>
+                                </a>
+                                <div class="circle" style="border-radius: 50%;">2</div>
+                            </div>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a href="../templates/search.html">
+                                <i class="fas fa-search video"></i>
+                            </a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a href="../templates/settings.html">
+                                <i class="fas fa-gear gear"
+                                    style="background-color: rgb(21, 24, 204); color: white; padding: .5rem; border-radius: .5rem;"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Code for Showing the Status -->
+    <main style="height: 80vh;">
+        <div class="container">
+            <!-- <div class="settings-container"> -->
+            <!-- Account Security Section -->
+            <section id="account-security">
+                <h2>Account Security</h2>
+                <form id="security-form">
+                    <h3>Change Password</h3><br>
+                    <div class="form-group">
+                        <label for="current-password">Current Password:</label>
+                        <input type="password" id="current-password" name="current-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password:</label>
+                        <input type="password" id="new-password" name="new-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">Retype New Password:</label>
+                        <input type="text" id="new-password" name="new-password" required>
+                    </div>
+                    <button type="submit">Change Password</button>
+                </form>
+
+            </section>
+
+            <!-- Account Management Section -->
+            <section id="account-management">
+                <h2>Account Management</h2>
+                <form id="account-management-form">
+                    <button type="button" id="deactivate-account">Deactivate Account</button>
+                    <button type="button" id="delete-account">Delete Account</button>
+                    <button type="button" id="download-data">Download Data</button>
+                </form>
+                <br><br><br>
+                <section id="privacy-settings">
+                    <h2>Privacy Settings</h2>
+                    <form id="privacy-form">
+                        <div>
+                            <div class="form-group">
+                                <label for="profile-visibility">Profile Visibility:</label>
+                                <select id="profile-visibility" name="profile-visibility">
+                                    <option value="public">Public</option>
+                                    <option value="friends">Friends</option>
+                                    <option value="private">Private</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="post-visibility">Post Visibility:</label>
+                                <select id="post-visibility" name="post-visibility">
+                                    <option value="public">Public</option>
+                                    <option value="friends">Friends</option>
+                                    <option value="custom">Custom</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <label for="message-privacy">Message Privacy:</label>
+                                <select id="message-privacy" name="message-privacy">
+                                    <option value="everyone">Everyone</option>
+                                    <option value="friends">Friends</option>
+                                    <option value="no-one">No One</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="tagged-photos">Tagged Photos:</label>
+                                <select id="tagged-photos" name="tagged-photos">
+                                    <option value="everyone">Everyone</option>
+                                    <option value="friends">Friends</option>
+                                    <option value="me">Only Me</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit">Save Privacy Settings</button>
+                    </form>
+                </section>
+
+            </section>
+
+            <!-- Help and Support Section -->
+            <section id="help-support">
+                <h2>Help and Support</h2>
+                <ul>
+                    <!-- <li><a href="../templates/help-center.html">Help Center</a></li> -->
+                    <li><a href="../templates/faq.html" >FAQ</a></li>
+                    <li><a href="../templates/contact.html">Contact Support</a></li>
+                    <li><a href="../templates/about.html" id="About">About Us</a></li>
+                    <li><a href="../templates/hashtag.html">Hashtag</a></li>
+                    <li><a href="../templates/language.html">Language</a></li>
+                    <li><a href="../templates/terms.html">Terms & conditions</a></li>
+                </ul>
+                <br><br><br><br>
+                <span class="footer-section"></span>
+                &copy; 2024 Team
+                </span>
+                <br><br><br>
+                <button type="button" id="Logout">Logout</button>
+            </section>
+            <!-- </div> -->
+        </div>
+
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Handle form submissions and button clicks
+
+            // Security Form Submission
+            const securityForm = document.getElementById('security-form');
+            securityForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                alert('Password changed successfully!');
+            });
+
+            // Account Management Buttons
+            document.getElementById('deactivate-account').addEventListener('click', () => {
+                if (confirm('Are you sure you want to deactivate your account?')) {
+                    alert('Account deactivated.');
+                }
+            });
+
+            document.getElementById('delete-account').addEventListener('click', () => {
+                if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
+                    alert('Account deleted.');
+                }
+            });
+
+            document.getElementById('download-data').addEventListener('click', () => {
+                alert('Data download initiated.');
+            });
+
+            // Help and Support Links
+            document.getElementById('help-center-link').addEventListener('click', (event) => {
+                event.preventDefault();
+                alert('Redirecting to Help Center...');
+            });
+
+            document.getElementById('contact-support-link').addEventListener('click', (event) => {
+                event.preventDefault();
+                alert('Redirecting to Contact Support...');
+            });
+
+            document.getElementById('community-guidelines-link').addEventListener('click', (event) => {
+                event.preventDefault();
+                alert('Redirecting to Community Guidelines...');
+            });
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+            // Handle form submissions and button clicks
+
+            // Security Form Submission
+            const securityForm = document.getElementById('security-form');
+            securityForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                alert('Password changed successfully!');
+            });
+
+            // Privacy Form Submission
+            const privacyForm = document.getElementById('privacy-form');
+            privacyForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                alert('Privacy settings updated.');
+            });
+
+            // Account Management Buttons
+            document.getElementById('deactivate-account').addEventListener('click', () => {
+                if (confirm('Are you sure you want to deactivate your account?')) {
+                    alert('Account deactivated.');
+                }
+            });
+
+            document.getElementById('delete-account').addEventListener('click', () => {
+                if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
+                    alert('Account deleted.');
+                }
+            });
+
+            document.getElementById('download-data').addEventListener('click', () => {
+                alert('Data download initiated.');
+            });
+
+            // Help and Support Links
+            document.getElementById('help-center-link').addEventListener('click', (event) => {
+                event.preventDefault();
+                alert('Redirecting to Help Center...');
+            });
+
+            document.getElementById('contact-support-link').addEventListener('click', (event) => {
+                event.preventDefault();
+                alert('Redirecting to Contact Support...');
+            });
+
+            document.getElementById('community-guidelines-link').addEventListener('click', (event) => {
+                event.preventDefault();
+                alert('Redirecting to Community Guidelines...');
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

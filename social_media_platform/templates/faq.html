@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/msg.css">
+    <script src="https://kit.fontawesome.com/d9c78b6614.js" crossorigin="anonymous"></script>
+    <title>FAQ</title>
+
+</head>
+
+<body>
+
+    <!-- Our Header section Starts from here -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-links">
+                    <ul class="nav-group">
+                        <li class="nav-item">
+                            <a href="../templates/index.html">
+                                <i class="fas fa-home video"></i>
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a href="">
+                                <i class="fas fa-video video"></i>
+                            </a>
+                        </li> -->
+                        <!-- <li class="nav-item">
+                            <a href="../templates/connections.html">
+                                <i class="fas fa-users video"></i>
+                            </a>
+                        </li> -->
+                        <li class="nav-item">
+                            <div class="sta">
+                                <a href="../templates/msg.html">
+                                    <i class="fab fa-facebook-messenger msg"></i>
+                                </a>
+                                <div class="circle" style="border-radius: 50%;">7</div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="action">
+                                <div class="profile" onclick="menuToggle()">
+                                    <a href="../templates/profile.html">
+                                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20220609093221/g2-200x200.jpg"
+                                            alt="user Avatar">
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a href="">
+                                <i class="fas fa-heart heart"></i>
+                            </a>
+                        </li> -->
+                        <li class="nav-item">
+                            <div class="sta">
+                                <a href="../templates/notification.html">
+                                    <i class="fas fa-bell bell"></i>
+                                </a>
+                                <div class="circle" style="border-radius: 50%;">2</div>
+                            </div>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a href="../templates/search.html">
+                                <i class="fas fa-search video"></i>
+                            </a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a href="../templates/settings.html">
+                                <i class="fas fa-gear gear"
+                                    style="background-color: rgb(21, 24, 204); color: white; padding: .5rem; border-radius: .5rem;"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Code for Showing the Status -->
+    <main style="height: 80vh;">
+        <div class="container">
+            <section id="faq">
+                <h1>Frequently Asked Questions</h1>
+    
+                <div class="faq-item">
+                    <button class="faq-question">What is [Social Media Platform Name]?</button>
+                    <div class="faq-answer">
+                        <p>[Social Media Platform Name] is a social networking platform designed to connect people, share content, and interact with others in a meaningful way.</p>
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question">How do I create an account?</button>
+                    <div class="faq-answer">
+                        <p>To create an account, click on the "Sign Up" button on our homepage, and follow the instructions to enter your details and set up your profile.</p>
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question">How can I reset my password?</button>
+                    <div class="faq-answer">
+                        <p>If you have forgotten your password, click on the "Forgot Password" link on the login page and follow the instructions to reset your password.</p>
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question">How do I contact support?</button>
+                    <div class="faq-answer">
+                        <p>You can contact support by visiting our "Contact Us" page and filling out the form, or by emailing us at <a href="mailto:support@example.com">support@example.com</a>.</p>
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question">What should I do if I see inappropriate content?</button>
+                    <div class="faq-answer">
+                        <p>If you encounter inappropriate content, please report it using the "Report" button next to the post, or contact our support team for further assistance.</p>
+                    </div>
+                </div>
+    
+                <!-- Add more FAQ items as needed -->
+            </section>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            const isVisible = answer.style.display === 'block';
+
+            // Close all answers
+            document.querySelectorAll('.faq-answer').forEach(ans => {
+                ans.style.display = 'none';
+            });
+
+            // Toggle the clicked answer
+            answer.style.display = isVisible ? 'none' : 'block';
+        });
+    });
+});
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/msg.css">
+    <script src="https://kit.fontawesome.com/d9c78b6614.js" crossorigin="anonymous"></script>
+    <title>Instagram Clone</title>
+        <!-- Bootstrap CSS -->
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: aliceblue;
+            margin: 0;
+            padding: 0;
+        }
+
+        .profile-container {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .cover-photo {
+            position: relative;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            background-image: url('images/default-cover.jpg');
+            /* Default cover photo */
+        }
+
+        .cover-photo .btn-change-cover {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cover-photo .btn-change-cover:hover {
+            background-color: rgba(0, 0, 0, 0.85);
+        }
+
+        .profile-photo-wrapper {
+            position: relative;
+            text-align: center;
+            margin-top: -75px;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            background-color: #fff;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .btn-change-photo {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .profile-info {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .profile-info h2 {
+            margin-bottom: 0;
+            font-size: 26px;
+        }
+
+        .profile-info .btn-edit {
+            margin-left: 10px;
+            font-size: 14px;
+        }
+
+        .profile-info p {
+            color: #6c757d;
+            font-size: 16px;
+        }
+
+        .profile-stats {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            border-top: 1px solid #e9ecef;
+            padding-top: 20px;
+        }
+
+        .profile-stats .stat-item {
+            text-align: center;
+            margin: 0 30px;
+        }
+
+        .profile-stats .stat-item h4 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .profile-stats .stat-item p {
+            margin: 0;
+            color: #6c757d;
+            font-size: 16px;
+        }
+
+        .profile-about {
+            margin-top: 30px;
+        }
+
+        .profile-about h5 {
+            font-size: 18px;
+            display: inline;
+        }
+
+        .profile-about .btn-edit-about {
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        .profile-about p {
+            color: #6c757d;
+        }
+
+        .profile-footer {
+            margin-top: 30px;
+            border-top: 1px solid #e9ecef;
+            padding-top: 15px;
+            text-align: center;
+        }
+
+        .post-grid {
+            margin-top: 30px;
+        }
+
+        .post-grid .post-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-grid .post-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Our Header section Starts from here -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-links">
+                    <ul class="nav-group">
+                        <li class="nav-item">
+                            <a href="../templates/index.html">
+                                <i class="fas fa-home video"></i>
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a href="">
+                                <i class="fas fa-video video"></i>
+                            </a>
+                        </li> -->
+                        <!-- <li class="nav-item">
+                            <a href="../templates/connections.html">
+                                <i class="fas fa-users video"></i>
+                            </a>
+                        </li> -->
+                        <li class="nav-item">
+                            <div class="sta">
+                                <a href="../templates/msg.html">
+                                    <i class="fab fa-facebook-messenger msg"></i>
+                                </a>
+                                <div class="circle" style="border-radius: 50%;">7</div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="action"
+                                style="background-color: rgb(21, 24, 204); color: white; border-radius: .5rem;">
+                                <div class="profile" onclick="menuToggle()">
+                                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20220609093221/g2-200x200.jpg"
+                                        alt="user Avatar">
+                                </div>
+                            </div>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a href="">
+                                <i class="fas fa-heart heart"></i>
+                            </a>
+                        </li> -->
+                        <li class="nav-item">
+                            <div class="sta">
+                                <a href="../templates/notification.html">
+                                    <i class="fas fa-bell bell"></i>
+                                </a>
+                                <div class="circle" style="border-radius: 50%;">2</div>
+                            </div>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a href="../templates/search.html">
+                                <i class="fas fa-search video"></i>
+                            </a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a href="../templates/settings.html">
+                                <i class="fas fa-gear gear"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Code for Showing the Status -->
+    <main>
+        <div class="container">
+            <!-- Profile Container -->
+            <div class="container1 profile-container">
+                <!-- Cover Photo Section -->
+                <div class="cover-photo" id="cover-photo">
+                    <button class="btn btn-sm btn-change-cover"
+                        onclick="document.getElementById('cover-photo-input').click()">Change Cover Photo</button>
+                    <input type="file" id="cover-photo-input" style="display: none;" accept="image/*"
+                        onchange="updateCoverPhoto(event)">
+                </div>
+
+                <!-- Profile Photo and Change Option -->
+                <div class="profile-photo-wrapper">
+                    <div class="profile-photo mx-auto">
+                        <img id="profile-photo" src="../static/images/a_p.jpg" alt="Profile Photo">
+                    </div>
+                    <button class="btn btn-sm btn-outline-secondary btn-change-photo"
+                        onclick="document.getElementById('profile-photo-input').click()">Change Profile Photo</button>
+                    <input type="file" id="profile-photo-input" style="display: none;" accept="image/*"
+                        onchange="updateProfilePhoto(event)">
+                </div>
+
+                <!-- Name and Bio -->
+                <!-- Profile Page Section -->
+                <div class="row justify-content-center" id="profile-section">
+                    <div class="col-lg-8 col-md-10">
+                        <div class="card"> 
+                            <div class="card-body p-4 text-center">
+                                <h4>John Doe</h4>
+                                <p>Email: john.doe@example.com</p>
+                                <p>Phone: 1234567890</p>
+                                <p>Address: 1234 Street Name, City</p>
+                                <button class="btn btn-custom" onclick="toggleEditForm()">Edit Profile</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edit Profile Section -->
+                <div class="row justify-content-center d-none" id="edit-profile-section">
+                    <div class="col-lg-8 col-md-10">
+                        <div class="card">
+                            
+                            <div class="card-body p-4">
+                                
+                                <form method="POST" enctype="multipart/form-data">
+                                    
+
+                                    <!-- First Name and Last Name in one row -->
+                                    <div class="row mb-4">
+                                        <div class="col-md-6">
+                                            <label for="id_first_name" class="form-label"><i class="fas fa-user"></i>
+                                                First Name</label>
+                                            <input type="text" class="form-control" id="id_first_name" name="first_name"
+                                                value="John">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="id_last_name" class="form-label"><i class="fas fa-user"></i>
+                                                Last Name</label>
+                                            <input type="text" class="form-control" id="id_last_name" name="last_name"
+                                                value="Doe">
+                                        </div>
+                                    </div>
+
+                                    <!-- Email -->
+                                    <div class="mb-4">
+                                        <label for="id_email" class="form-label"><i class="fas fa-envelope"></i>
+                                            Email</label>
+                                        <input type="email" class="form-control" id="id_email" name="email_address"
+                                            value="john.doe@example.com">
+                                    </div>
+
+                                    <!-- Phone Number -->
+                                    <div class="mb-4">
+                                        <label for="id_phone" class="form-label"><i class="fas fa-phone"></i> Phone
+                                            Number</label>
+                                        <input type="text" class="form-control" id="id_phone" name="contact_number"
+                                            value="1234567890">
+                                    </div>
+
+                                    <!-- Address -->
+                                    <div class="mb-4">
+                                        <label for="id_address" class="form-label"><i class="fas fa-home"></i>
+                                            Address</label>
+                                        <input type="text" class="form-control" id="id_address" name="home_address"
+                                            value="1234 Street Name, City">
+                                    </div>
+
+                                    <!-- Profile Picture -->
+                                    <div class="mb-4">
+                                        <label for="id_profile_image" class="form-label"><i class="fas fa-image"></i>
+                                            Profile Image</label>
+                                        <input type="file" class="form-control" id="id_profile_image"
+                                            name="profile_picture">
+                                    </div>
+
+                                    <!-- Submit Button -->
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-custom btn-lg"><i class="fas fa-save"></i>
+                                            Save Changes</button>
+                                        <button type="button" class="btn btn-link"
+                                            onclick="toggleEditForm()">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Stats -->
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <h4 id="post-count">120</h4>
+                        <p>Posts</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4 id="followers-count">300</h4>
+                        <p>Followers</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4 id="following-count">180</h4>
+                        <p>Following</p>
+                    </div>
+                </div>
+
+                <!-- Profile Actions -->
+                <div class="profile-actions text-center mt-4">
+                    <button class="btn btn-primary" onclick="followSomeone()">Follow Someone</button>
+                    <button class="btn btn-secondary" onclick="addPost()">Add Post</button>
+                    <button class="btn btn-info" onclick="beFollowed()">Get Follower</button>
+                </div>
+
+                <!-- About Section -->
+                <div class="profile-about mt-4">
+                    <h5>About</h5>
+                    <button class="btn btn-sm btn-outline-primary btn-edit-about" onclick="editAbout()">Edit</button>
+                    <p>
+                        This is the place to provide a longer description about yourself. You can share more detailed
+                        information, your interests, background, or anything else you'd like to highlight.
+                    </p>
+                </div>
+
+                <!-- Post Grid -->
+                <div class="post-grid" id="post-grid">
+                    <div class="container1">
+                        <div class="row" id="post-row">
+                            <!-- Post Item Template -->
+                            <!-- New posts will be appended here -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </main>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for dynamic functionality -->
+    <script>
+        // Variables to store counts
+        let postCount = 120;
+        let followersCount = 300;
+        let followingCount = 180;
+
+        // Function to add a post
+        function addPost() {
+            postCount++;
+            document.getElementById('post-count').innerText = postCount;
+
+            // Create a new post item
+            const postItem = document.createElement('div');
+            postItem.classList.add('col-md-4', 'mb-4');
+            postItem.innerHTML = `
+            <div class="post-item">
+                <img src="images/default-post.jpg" alt="Post ${postCount}">
+            </div>
+        `;
+
+            // Append the new post item to the grid
+            const postRow = document.getElementById('post-row');
+            if (postRow.children.length % 3 === 0) {
+                // If there are already 3 items, create a new row
+                const newRow = document.createElement('div');
+                newRow.classList.add('row');
+                postRow.appendChild(newRow);
+            }
+
+            // Append the new post item to the current row
+            postRow.lastElementChild.appendChild(postItem);
+        }
+
+        // Function to follow someone
+        function followSomeone() {
+            followingCount++;
+            document.getElementById('following-count').innerText = followingCount;
+        }
+
+        // Function to get followed
+        function beFollowed() {
+            followersCount++;
+            document.getElementById('followers-count').innerText = followersCount;
+        }
+
+        // Function to edit the About section
+        function editAbout() {
+            alert("Edit About section functionality goes here.");
+        }
+
+        // Function to update the profile photo
+        function updateProfilePhoto(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('profile-photo').src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Function to update the cover photo
+        function updateCoverPhoto(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('cover-photo').style.backgroundImage = `url(${e.target.result})`;
+            };
+            reader.readAsDataURL(file);
+        }
+    </script>
+    <!-- Bootstrap 5 JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleEditForm() {
+            document.getElementById('profile-section').classList.toggle('d-none');
+            document.getElementById('edit-profile-section').classList.toggle('d-none');
+        }
+    </script>
+
+</body>
+
+</html>

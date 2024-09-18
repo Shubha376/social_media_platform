@@ -1,11 +1,45 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('', views.user_signup, name='signup'),
-    path('login/', views.user_login, name='login'),
+    path('', views.user_login, name='login'),
+    path('signup/', views.user_signup, name='signup'),
     path('index/', views.user_index, name='index'),
-    path('profile/', views.user_profile, name='profile'),
+    path('msg/',views.user_msg,name='msg'),
+    path('profile/',views.user_profile,name='profile'),
+    path('notification/',views.user_notification,name='notification'),
+    path('settings/',views.user_settings,name='settings'),
+    path('language/',views.user_language,name='language'),
+    path('about/',views.user_about,name='about'),
+    # path('post.js/',views.user_post.js,name='post,js'),
+    path('contact/',views.user_post.contact,name='contact'),
+    path('hashtag/',views.user_hashtag,name='hashtag'),
+    path('faq/',views.user_faq,name='faq'),
+    path('terms/',views,user_terms,name='terms'),
+    path('forgot-pass',views,user_forgot-pass,name='forgot'),
+    path('logout',views,user_logout,name='logout')
+
+
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+    
+    # path('forgot_password/', views.user_forgot_password, name='forgot_password'),
+    # path('social-auth/', include('social_django.urls', namespace='social')),
+    # path('profile/', views.user_profile, name='profile'),
+    # path('msg/', views.user__msg, name='msg'),
+    # path('notification/', views.user__notification, name='notification'),
+    
 
 
     

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/msg.css">
+    <script src="https://kit.fontawesome.com/d9c78b6614.js" crossorigin="anonymous"></script>
+    <title>Instagram Clone</title>
+    
+</head>
+
+<body>
+
+    <!-- Our Header section Starts from here -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-links">
+                    <ul class="nav-group">
+                        <li class="nav-item">
+                            <a href="../templates/index.html">
+                                <i class="fas fa-home video"></i>
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a href="">
+                                <i class="fas fa-video video"></i>
+                            </a>
+                        </li> -->
+                        <!-- <li class="nav-item">
+                            <a href="../templates/connections.html">
+                                <i class="fas fa-users video"></i>
+                            </a>
+                        </li> -->
+                        <li class="nav-item">
+                            <div class="sta">
+                                <a href="../templates/msg.html">
+                                    <i class="fab fa-facebook-messenger msg"></i>
+                                </a>
+                                <div class="circle" style="border-radius: 50%;">7</div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="action">
+                                <div class="profile" onclick="menuToggle()">
+                                    <a href="../templates/profile.html">
+                                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20220609093221/g2-200x200.jpg"
+                                            alt="user Avatar">
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a href="">
+                                <i class="fas fa-heart heart"></i>
+                            </a>
+                        </li> -->
+                        <li class="nav-item">
+                            <div class="sta">
+                                <a href="../templates/notification.html">
+                                    <i class="fas fa-bell bell"></i>
+                                </a>
+                                <div class="circle" style="border-radius: 50%;">2</div>
+                            </div>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a href="../templates/search.html">
+                                <i class="fas fa-search video"></i>
+                            </a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a href="../templates/settings.html">
+                                <i class="fas fa-gear gear"
+                                    style="background-color: rgb(21, 24, 204); color: white; padding: .5rem; border-radius: .5rem;"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Code for Showing the Status -->
+    <main style="height: 80vh;">
+        <div class="container">
+            <section id="contact-form">
+                <h1>Contact Us</h1>
+                <p>If you have any questions, feedback, or need support, please reach out to us using the form below or
+                    through our other contact methods.</p>
+
+                <form id="contact-us-form">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+            </section>
+
+            <section id="contact-details">
+                <h2>Other Ways to Reach Us</h2>
+                <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                <p>Email: <a href="mailto:support@example.com">support@example.com</a></p>
+                <p>Follow us on social media:</p>
+                <ul class="social-media">
+                    <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+                    <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                    <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                    <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Handle form submission
+            const contactForm = document.getElementById('contact-us-form');
+            contactForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                alert('Your message has been sent successfully!');
+                contactForm.reset(); // Optional: Reset form fields after submission
+            });
+        });
+
+    </script>
+</body>
+
+</html>
